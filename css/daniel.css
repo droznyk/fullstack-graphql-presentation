@@ -110,6 +110,7 @@ h1 {
   padding: 20px;
   font-size: 28px;
   text-align: initial;
+  line-height: 1.1;
 }
 
 .reveal ul {
@@ -121,7 +122,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  line-height: 1.6;
 }
 
 .akra-section {

@@ -385,25 +385,74 @@
                     </code>
                   </pre>
             </section>
+            <section style="flex-direction: row;">
+                    <pre style="font-size: 24px !important;">
+                            <code style="font-size: 24px !important;" class="graphql" data-trim data-noescape>
+                                    {
+                                        noteSearch {
+                                            id
+                                            title
+                                            body
+                                            tags
+                                        }
+                                    }
+                            </code>
+                        </pre>
+                        <pre style="margin-left: 30px;">
+                                <code style="font-size: 24px !important;" class="graphql" data-trim data-noescape>
+                                        Types::NoteType = GraphQL::ObjectType.define do
+                                        name "Note"
+                                      
+                                        field :comments, !types[Types::CommentType]
+                                      
+                                        field :id, types.ID
+                                        field :title, types.String
+                                        field :body, types.String
+                                        field :tags, types[types.String], property: :tag_list
+                                      end
+                                </code>
+                            </pre>
+                            <pre style="margin-left: 30px; font-size: 24px !important;">
+                                    <code style="font-size: 24px !important;" class="graphql" data-trim data-noescape>
+                                            {
+                                                "data": {
+                                                  "noteSearch": [
+                                                    {
+                                                      "id": "1",
+                                                      "title": "Use GraphQL api",
+                                                      "body": "GraphQL api is da king",
+                                                      "tags": [
+                                                        "duck",
+                                                        "todo",
+                                                        "dev"
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                    </code>
+                                </pre>
+                </section>
             <section>
                 <h1>Error handling</h1>
                 <ul>
                     <li>Errors as part of your schema</li>
-                    <li>Use graphql-errors gem to provide schema wide error handling( But it uses exceptions :( )</li>
+                    <li>Use graphql-errors gem to provide schema wide error handling( But it uses exceptions )</li>
                 </ul>
+                <img src="http://cultofthepartyparrot.com/parrots/hd/sadparrot.gif"/>
             </section>
             <section>
                 <h1>Testing</h1>
                 <ul>
                     <li>Don’t test schema</li>
                     <li>Unit test what schema is calling</li>
-                    <li>E2E(Requests) specs</li>
+                    <li>E2E (requests) specs</li>
                 </ul>
             </section>
             <section>
                 <h1>Handling complex queries</h1>
                 <span>Someone requesting a 20 level deep query might hit your server performance.</span>
-                <p>You may:</p>
+                <span>You may:</span>
                 <ul>
                     <li>Limit the query depth( ex. no more that 5 levels)</li>
                     <li>Limit the query complexity( You define operations complexity, and query cannot exceed max complexity)</li>
@@ -415,7 +464,7 @@
                 <ul>
                     <li>Clients can subscribe to queries</li>
                     <li>Pusher and ActionCable backends available</li>
-                    <li>Beware of performance - don’t expect handling 2 millions of users on single instance</li>
+                    <li>Beware of performance - don’t expect handling 2 million users on single instance</li>
                 </ul>
             </section>
             <section>
