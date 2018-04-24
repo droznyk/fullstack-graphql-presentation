@@ -140,16 +140,16 @@ h1 {
 }
 .fb {
   grid-area: b;
-}
-
-.fb img, .strona img, .aplikuj-na img {
-  width: 40px;
-  margin: 0 20px !important;
-  margin-bottom: -5px !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .strona {
   grid-area: c;
+  display: flex;
+  justify-content: baseline;
+  align-items: flex-start;
 }
 
 .aplikuj-na {
@@ -157,4 +157,10 @@ h1 {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.fb img, .strona img, .aplikuj-na img {
+  width: 40px;
+  margin: 0 20px !important;
+  margin-bottom: -5px !important;
 }
