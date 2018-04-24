@@ -123,3 +123,38 @@ h1 {
   align-items: center;
 
 }
+
+.akra-section {
+  color: black;
+  font-size: 40px !important;
+  display: grid;
+  grid-template-rows: 200px 200px;
+  grid-template-areas: "a a b" 
+                       "a a c"
+                       "x d d";
+}
+
+.zdjecie-akra {
+  grid-area: a;
+  width: 800px;
+}
+.fb {
+  grid-area: b;
+}
+
+.fb img, .strona img, .aplikuj-na img {
+  width: 40px;
+  margin: 0 20px !important;
+  margin-bottom: -5px !important;
+}
+
+.strona {
+  grid-area: c;
+}
+
+.aplikuj-na {
+  grid-area: d;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
